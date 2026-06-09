@@ -1,0 +1,808 @@
+{
+    "questions": [
+        {
+            "id": "sYkbAqLpYMOgUIR5NEod5",
+            "type": "short_text",
+            "text": "<p>What is your favorite book? Description - Hint - logic word : Humankind</p>",
+            "answer": "Humankind",
+            "icon": "mdi:form-textbox",
+            "settings": {
+                "required": true,
+                "time": true,
+                "timeValue": "60",
+                "allowNext": true,
+                "allowBack": true,
+                "example": false,
+                "buttonLabel": false,
+                "buttonLabelNext": "Next",
+                "buttonLabelBack": "Back",
+                "addMedia": false,
+                "fieldType": "short_text",
+                "photoPosition": "Top",
+                "charLimit": true,
+                "charLimitMin": "0",
+                "charLimitMax": "30",
+                "description": "<p>✨📚 <em>Share the book that stole your heart and changed your perspective!</em> 💖</p>",
+                "hint": "<p>📝 <em>Type the title and author, e.g., \"Sapiens by Yuval Noah Harari</em></p>"
+            },
+            "logic": [
+                {
+                    "id": "DxeDEdeNzFfwGekKM7SO-",
+                    "is": true,
+                    "answer": "Humankind",
+                    "goTo": "ebI3dnzjw_00WIVwc92_Y"
+                }
+            ]
+        },
+        {
+            "id": "_2D8vj0Ir1oTTKk5dxuik",
+            "type": "group",
+            "name": "Group  basic personal details - hide Question Number ,  randomize Question Order , randomize Answer Order - Bottom Labels",
+            "icon": "mdi:help",
+            "children": [
+                {
+                    "id": "LqYnI3PK-CenkyOHFL6E2",
+                    "type": "short_text",
+                    "same": [
+                        {
+                            "id": "_WnBKC5L7dEzzUo-M9xJ0",
+                            "questionText": "<p>enter your address : Example</p>",
+                            "answer": "iran - tehran - lavizan - ozgol - nader -32"
+                        }
+                    ],
+                    "text": "<p>enter your address : Example</p>",
+                    "answer": "iran - tehran - lavizan - ozgol - nader -32",
+                    "icon": "mdi:form-textbox",
+                    "settings": {
+                        "required": false,
+                        "time": false,
+                        "allowNext": false,
+                        "allowBack": false,
+                        "example": true,
+                        "buttonLabel": false,
+                        "buttonLabelNext": "Next",
+                        "buttonLabelBack": "Back",
+                        "addMedia": false,
+                        "fieldType": "short_text",
+                        "photoPosition": "Top",
+                        "charLimit": false
+                    }
+                },
+                {
+                    "id": "A-8PBauZ0vyOFwThwfLPX",
+                    "type": "short_text",
+                    "same": [
+                        {
+                            "id": "rFX07bsHd4Zyw4Z-ne32R",
+                            "questionText": "<p>enter your address  Time : 999</p>"
+                        }
+                    ],
+                    "text": "<p>enter your address  Time : 999</p>",
+                    "icon": "mdi:form-textbox",
+                    "settings": {
+                        "required": false,
+                        "time": true,
+                        "timeValue": "999",
+                        "allowNext": false,
+                        "allowBack": false,
+                        "example": false,
+                        "buttonLabel": false,
+                        "buttonLabelNext": "Next",
+                        "buttonLabelBack": "Back",
+                        "addMedia": false,
+                        "fieldType": "address",
+                        "photoPosition": "Top",
+                        "charLimit": false
+                    }
+                },
+                {
+                    "id": "zh8z-AiqoH6g6QYJVQyGv",
+                    "type": "short_text",
+                    "same": [
+                        {
+                            "id": "ZDZ3rvd6sPeI72nHS2Nac",
+                            "questionText": "<p> Hey, what’s your name, mysterious stranger? 😏 ?  Key: Name - Variable</p>"
+                        },
+                        {
+                            "id": "0W8FOC9sq1cXsWxLZxbLc",
+                            "questionText": "<p>👀 So… what do they call you in the legends?? Key: Name - Variable</p>"
+                        },
+                        {
+                            "id": "BTpghjY6atvSsn9Hmiezo",
+                            "questionText": "<p>😄 Alright, superstar, what’s your name? ? Key: Name - Variable</p>"
+                        }
+                    ],
+                    "text": "<p>😄 Alright, superstar, what’s your name? ? Key: Name - Variable</p>",
+                    "icon": "mdi:form-textbox",
+                    "settings": {
+                        "key": "Name",
+                        "required": false,
+                        "time": false,
+                        "allowNext": false,
+                        "allowBack": false,
+                        "example": false,
+                        "buttonLabel": false,
+                        "buttonLabelNext": "Next",
+                        "buttonLabelBack": "Back",
+                        "addMedia": false,
+                        "fieldType": "name",
+                        "photoPosition": "Top",
+                        "charLimit": false,
+                        "useAsVariable": true
+                    }
+                },
+                {
+                    "id": "PtRGBryb84oeQDPk7FNDh",
+                    "type": "short_text",
+                    "same": [
+                        {
+                            "id": "eR0PZmJ6udQkM95KEre2Y",
+                            "questionText": "<p>enter yor phone  : Required - same 1</p>"
+                        },
+                        {
+                            "id": "dDQURSPFgR69JIRp4acRw",
+                            "questionText": "<p>enter yor phone  : Required - same2</p>"
+                        },
+                        {
+                            "id": "G9UCwQLY_PoSUH8XLuPUX",
+                            "questionText": "<p>enter yor phone  : Required - same 3</p>"
+                        }
+                    ],
+                    "text": "<p>enter yor phone  : Required - same 3</p>",
+                    "icon": "mdi:form-textbox",
+                    "settings": {
+                        "required": true,
+                        "time": false,
+                        "allowNext": false,
+                        "allowBack": false,
+                        "example": false,
+                        "buttonLabel": false,
+                        "buttonLabelNext": "Next",
+                        "buttonLabelBack": "Back",
+                        "addMedia": false,
+                        "fieldType": "phone",
+                        "photoPosition": "Top",
+                        "charLimit": false
+                    }
+                },
+                {
+                    "id": "CD5jBB_oF7QoLFyx8u2bi",
+                    "type": "short_text",
+                    "same": [
+                        {
+                            "id": "1qWXK7ox_Wlb133xS986Z",
+                            "questionText": "<p>enter email : Example - Button Label - Key : email -Variable</p>"
+                        }
+                    ],
+                    "text": "<p>enter email : Example - Button Label - Key : email -Variable</p>",
+                    "icon": "mdi:form-textbox",
+                    "settings": {
+                        "key": "email",
+                        "required": false,
+                        "time": false,
+                        "allowNext": false,
+                        "allowBack": false,
+                        "example": true,
+                        "buttonLabel": true,
+                        "buttonLabelNext": "Nexttt",
+                        "buttonLabelBack": "Backkk",
+                        "addMedia": false,
+                        "fieldType": "email",
+                        "photoPosition": "Top",
+                        "charLimit": false,
+                        "useAsVariable": true
+                    }
+                }
+            ],
+            "settings": {
+                "required": false,
+                "timeAlert": "500",
+                "allowNext": true,
+                "allowBack": true,
+                "autoNext": false,
+                "hideQuestionNumber": true,
+                "randomizeQuestionOrder": true,
+                "randomizeAnswerOrder": true,
+                "bottomLabelEnabled": true,
+                "bottomLabel": {
+                    "next": "Next G",
+                    "back": "Back G"
+                }
+            }
+        },
+        {
+            "id": "AFPtgFS8sRfK7tqlXSs4k",
+            "type": "multiple_choice",
+            "text": "<p>Which season do you like the most?</p>",
+            "answer": "Summer ☀️",
+            "icon": "mdi:checkbox-multiple-marked",
+            "settings": {
+                "required": false,
+                "time": false,
+                "randomize": false,
+                "allowNext": false,
+                "allowBack": false,
+                "autoNext": false,
+                "multipleSelection": false,
+                "dropdownValue": false,
+                "addMedia": false,
+                "similarOptions": false,
+                "trueAnswerMode": false
+            },
+            "options": [
+                {
+                    "id": "Z1tIDY",
+                    "text": "Spring 🌸",
+                    "value": "0",
+                    "priority_order": 1
+                },
+                {
+                    "id": "-nDWTY",
+                    "text": "Summer ☀️",
+                    "value": "0",
+                    "priority_order": 2
+                },
+                {
+                    "id": "HHOsVV",
+                    "text": "Autumn 🍂",
+                    "value": "90",
+                    "priority_order": 3
+                },
+                {
+                    "id": "WdzxRP",
+                    "text": "Winter ❄️",
+                    "value": "10",
+                    "priority_order": 4
+                }
+            ]
+        },
+        {
+            "id": "CYOQJcW5s4jGRYrEH5sp2",
+            "type": "multiple_choice",
+            "text": "<p>What’s your favorite type of music? Dropdown Option - Randomize - Hide Answer</p>",
+            "icon": "mdi:checkbox-multiple-marked",
+            "settings": {
+                "required": false,
+                "time": false,
+                "randomize": true,
+                "allowNext": false,
+                "allowBack": false,
+                "autoNext": false,
+                "multipleSelection": false,
+                "dropdownValue": true,
+                "addMedia": false,
+                "similarOptions": false,
+                "trueAnswerMode": true
+            },
+            "options": [
+                {
+                    "id": "ORTe3r",
+                    "text": "Pop 🎤",
+                    "value": "1",
+                    "priority_order": 1
+                },
+                {
+                    "id": "NkC3Zs",
+                    "text": "Rock 🎸",
+                    "value": "50",
+                    "priority_order": 2
+                },
+                {
+                    "id": "uDprhR",
+                    "text": "Classical 🎻",
+                    "value": "1",
+                    "priority_order": 3
+                },
+                {
+                    "id": "MRVBbl",
+                    "text": "Jazz 🎷",
+                    "value": "48",
+                    "priority_order": 4
+                }
+            ]
+        },
+        {
+            "id": "v3B3Kg53Vxj_TdQtxvoWE",
+            "type": "multiple_choice",
+            "text": "<p>Which kind of vacation would you prefer? Similar options</p>",
+            "answer": "Mountain hiking ⛰️",
+            "icon": "mdi:checkbox-multiple-marked",
+            "settings": {
+                "required": false,
+                "time": false,
+                "randomize": false,
+                "allowNext": false,
+                "allowBack": false,
+                "autoNext": false,
+                "multipleSelection": false,
+                "dropdownValue": false,
+                "addMedia": false,
+                "similarOptions": true,
+                "trueAnswerMode": false
+            },
+            "options": [
+                {
+                    "id": "MYbDYl",
+                    "text": " Beach holiday 🏖️",
+                    "value": "10",
+                    "priority_order": 1,
+                    "sameAnswers": [
+                        {
+                            "text": "Island getaway 🏝️"
+                        }
+                    ]
+                },
+                {
+                    "id": "INotk1",
+                    "text": "Mountain hiking ⛰️",
+                    "value": "90",
+                    "priority_order": 2,
+                    "sameAnswers": [
+                        {
+                            "text": "Forest camping 🌲"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "aeevdTednmJRLMxoHHIye",
+            "type": "multiple_choice",
+            "text": "<p>Which type of transportation do you use most often? hint - Multiple Selection: 1,3</p>",
+            "icon": "mdi:checkbox-multiple-marked",
+            "settings": {
+                "required": false,
+                "time": false,
+                "randomize": false,
+                "allowNext": false,
+                "allowBack": false,
+                "autoNext": false,
+                "multipleSelection": true,
+                "dropdownValue": false,
+                "min": "1",
+                "max": "3",
+                "hint": "<p>Choose the option that best matches your daily or weekly routine. Consider all modes of transport you might take, but pick only the one you rely on most.</p>",
+                "addMedia": false,
+                "similarOptions": false,
+                "trueAnswerMode": false
+            },
+            "options": [
+                {
+                    "id": "WQBk-2",
+                    "text": " Car 🚗",
+                    "value": "1",
+                    "priority_order": 1
+                },
+                {
+                    "id": "YQDios",
+                    "text": "Bicycle 🚴",
+                    "value": "1",
+                    "priority_order": 2
+                },
+                {
+                    "id": "16nrRW",
+                    "text": "Public bus 🚌",
+                    "value": "1",
+                    "priority_order": 3
+                },
+                {
+                    "id": "vW6psK",
+                    "text": "Train 🚆",
+                    "value": "1",
+                    "priority_order": 4
+                },
+                {
+                    "id": "nc-1uH",
+                    "text": "Walking 🚶",
+                    "value": "96",
+                    "priority_order": 5
+                }
+            ]
+        },
+        {
+            "id": "ebI3dnzjw_00WIVwc92_Y",
+            "type": "long_text",
+            "text": "<p>Why did you choose your current field of study or work?</p>",
+            "icon": "mdi:form-textarea",
+            "settings": {
+                "time": false,
+                "required": false,
+                "allowNext": false,
+                "allowBack": false,
+                "charLimit": false,
+                "example": false,
+                "buttonLabel": false,
+                "buttonLabelNext": "Next",
+                "buttonLabelBack": "Back",
+                "addMedia": false,
+                "photoPosition": "Top"
+            }
+        },
+        {
+            "id": "6A557gsaXRTUx96YC7dAI",
+            "type": "priority_order",
+            "text": "<p>Rank the following daily activities in order of importance to you (1 = most important, 4 = least important):</p>",
+            "answer": [
+                {
+                    "id": "8LAOM2",
+                    "text": "Exercise 🏋️",
+                    "value": "1",
+                    "priority_order": 1
+                },
+                {
+                    "id": "5nXV3C",
+                    "text": "Work/Study 📚",
+                    "value": "1",
+                    "priority_order": 2
+                },
+                {
+                    "id": "2PZF0P",
+                    "text": "Socializing with friends 👥",
+                    "value": "1",
+                    "priority_order": 3
+                },
+                {
+                    "id": "cHVmzn",
+                    "text": "Relaxation/Leisure 😌",
+                    "value": "97",
+                    "priority_order": 4
+                }
+            ],
+            "icon": "mdi:priority_order-high",
+            "settings": {
+                "required": false,
+                "time": false,
+                "randomize": false,
+                "allowNext": false,
+                "allowBack": false,
+                "buttonLabel": false,
+                "buttonLabelNext": "Next",
+                "buttonLabelBack": "Back",
+                "addMedia": false,
+                "photoPosition": "Top",
+                "example": false
+            },
+            "options": [
+                {
+                    "id": "8LAOM2",
+                    "text": "Exercise 🏋️",
+                    "value": "1",
+                    "priority_order": 1
+                },
+                {
+                    "id": "5nXV3C",
+                    "text": "Work/Study 📚",
+                    "value": "1",
+                    "priority_order": 2
+                },
+                {
+                    "id": "2PZF0P",
+                    "text": "Socializing with friends 👥",
+                    "value": "1",
+                    "priority_order": 3
+                },
+                {
+                    "id": "cHVmzn",
+                    "text": "Relaxation/Leisure 😌",
+                    "value": "97",
+                    "priority_order": 4
+                }
+            ]
+        },
+        {
+            "id": "2i1ZYhpKkSs3TcjoQUYrf",
+            "type": "description",
+            "text": "<p>💡✨ <em>Take a deep breath and enjoy this part — there are no right or wrong answers here, just your story! Be yourself, have fun, and let your personality shine through.</em> 🌈💬</p>",
+            "icon": "mdi:comment-text-multiple",
+            "settings": {
+                "allowNext": false,
+                "time": true,
+                "timeValue": "10",
+                "allowBack": false,
+                "buttonLabel": false,
+                "buttonLabelNext": "Next",
+                "buttonLabelBack": "Back",
+                "addMedia": false,
+                "photoPosition": "Top"
+            }
+        },
+        {
+            "id": "dh6JVbsbsOZXdiXKMbhN6",
+            "type": "matrix",
+            "text": "<p>How satisfied are you with the following aspects of your life? Allow Multiple per Row : 0,1 -- Limit Per Column : 0.2 -- Auto next</p>",
+            "icon": "mdi:table-large",
+            "settings": {
+                "required": false,
+                "time": false,
+                "allowNext": false,
+                "autoNext": true,
+                "allowBack": false,
+                "allowMultipleInRow": true,
+                "matrixAsButtons": false,
+                "minSelections": "0",
+                "maxSelections": "1",
+                "limitPerColumn": true,
+                "limitPerColumnMin": "0",
+                "limitPerColumnMax": "2",
+                "addMedia": false,
+                "photoPosition": "Top",
+                "buttonLabel": false,
+                "buttonLabelNext": "Next",
+                "buttonLabelBack": "Back"
+            },
+            "rows": [
+                {
+                    "id": "oDh0Y",
+                    "customId": "B8TLd",
+                    "text": "Work/Study 📚"
+                },
+                {
+                    "id": "lW9Jn",
+                    "customId": "KXUll",
+                    "text": "Social Life 👥"
+                }
+            ],
+            "columns": [
+                {
+                    "id": "1gK7W",
+                    "customId": "Hq8h7",
+                    "text": "Not Satisfied 😕"
+                },
+                {
+                    "id": "nIyd6",
+                    "customId": "yPKqK",
+                    "text": "Neutral 😐"
+                },
+                {
+                    "id": "OHYvE",
+                    "customId": "DFl",
+                    "text": "Very Satisfied 😄"
+                }
+            ]
+        },
+        {
+            "id": "QMlT91GEQmUSDA_6TaYYN",
+            "type": "matrix",
+            "text": "New matrix Question",
+            "icon": "mdi:table-large",
+            "settings": {
+                "required": false,
+                "time": false,
+                "allowNext": false,
+                "autoNext": false,
+                "allowBack": false,
+                "allowMultipleInRow": false,
+                "matrixAsButtons": true,
+                "limitPerColumn": false,
+                "addMedia": false,
+                "photoPosition": "Top",
+                "buttonLabel": false,
+                "buttonLabelNext": "Next",
+                "buttonLabelBack": "Back"
+            },
+            "rows": [
+                {
+                    "id": "CSY8I",
+                    "customId": "kMS6k",
+                    "text": "I enjoy trying new foods 🍜"
+                },
+                {
+                    "id": "L0McW",
+                    "customId": "2xUDp",
+                    "text": "I prefer working in a team 👥"
+                },
+                {
+                    "id": "DgMto",
+                    "customId": "G5e",
+                    "text": "I like to plan things in advance 📅"
+                },
+                {
+                    "id": "Pt9cv",
+                    "customId": "NA2",
+                    "text": "I enjoy outdoor activities 🏞️"
+                }
+            ],
+            "columns": [
+                {
+                    "id": "5TfXG",
+                    "customId": "aIgCu",
+                    "text": "Strongly Agree ✅"
+                },
+                {
+                    "id": "02Hl3",
+                    "customId": "fDlgc",
+                    "text": "Strongly Disagree ❌"
+                }
+            ]
+        },
+        {
+            "id": "DTR3qB5cnMPfJk4-uPvy2",
+            "type": "rating",
+            "text": "<p>How would you rate your overall satisfaction with our service? (1 ⭐ to 5 ⭐) Required</p>",
+            "answer": 3,
+            "icon": "mdi:star-outline",
+            "settings": {
+                "required": true,
+                "time": false,
+                "allowNext": false,
+                "allowBack": false,
+                "example": false,
+                "buttonLabel": false,
+                "buttonLabelNext": "Next",
+                "buttonLabelBack": "Back",
+                "addMedia": false,
+                "iconType": "star",
+                "iconCount": 5,
+                "mode": "icons"
+            }
+        },
+        {
+            "id": "_Yvm6ywBY9czM-tg7uiy4",
+            "type": "rating",
+            "text": "<p>How much do you love this new feature? (1 ❤️ to 5 ❤️)</p>",
+            "answer": 4,
+            "icon": "mdi:star-outline",
+            "settings": {
+                "required": false,
+                "time": false,
+                "allowNext": false,
+                "allowBack": false,
+                "example": false,
+                "buttonLabel": false,
+                "buttonLabelNext": "Next",
+                "buttonLabelBack": "Back",
+                "addMedia": false,
+                "iconType": "heart",
+                "iconCount": 5,
+                "mode": "icons"
+            }
+        },
+        {
+            "id": "2tHJPnkkIUgbl-ANuNZsf",
+            "type": "rating",
+            "text": "<p>How much do you approve of the new product design? (1 👍 to 5 👍)</p>",
+            "answer": 5,
+            "icon": "mdi:star-outline",
+            "settings": {
+                "required": false,
+                "time": false,
+                "allowNext": false,
+                "allowBack": false,
+                "example": false,
+                "buttonLabel": false,
+                "buttonLabelNext": "Next",
+                "buttonLabelBack": "Back",
+                "addMedia": false,
+                "iconType": "like",
+                "iconCount": 5,
+                "mode": "icons"
+            }
+        },
+        {
+            "id": "CGp6nCIFgrlDLFPLYfZxO",
+            "type": "file_upload",
+            "text": "<p>📎✨ <em>Please upload your file here. Make sure it’s in the correct format (PDF, DOCX, or JPG) and under 10 MB in size. This will help us process your request quickly and smoothly.</em> 🚀</p>",
+            "icon": "mdi:file_upload",
+            "settings": {
+                "required": false,
+                "time": false,
+                "allowNext": false,
+                "allowBack": false,
+                "buttonLabel": false,
+                "buttonLabelNext": "Next",
+                "buttonLabelBack": "Back",
+                "fileTypes": [
+                    "PDF",
+                    "DOCX"
+                ],
+                "maxFileSize": "1105920",
+                "addMedia": false,
+                "photoPosition": "Top"
+            }
+        },
+        {
+            "id": "HWDj5dNWA4_D_hHSWVxbB",
+            "type": "scale",
+            "text": "<p>Scale Question (answered on a numerical or visual scale):</p>",
+            "answer": 0,
+            "icon": "mdi:ruler",
+            "settings": {
+                "required": false,
+                "time": false,
+                "allowNext": false,
+                "allowBack": false,
+                "buttonLabel": false,
+                "buttonLabelNext": "Next",
+                "buttonLabelBack": "Back",
+                "addMedia": false,
+                "range": {
+                    "min": 1,
+                    "max": 10
+                },
+                "step": 1,
+                "layoutType": "number",
+                "showMarks": true
+            }
+        },
+        {
+            "id": "6YO5QD52Hx7etVwajZfsx",
+            "type": "scale",
+            "text": "<p>Grid Question (multiple items, each rated across the same scale) 🔢 Labels- Scale Settings:1-11 | step 2</p>",
+            "answer": 0,
+            "icon": "mdi:ruler",
+            "settings": {
+                "required": false,
+                "time": false,
+                "allowNext": false,
+                "allowBack": false,
+                "buttonLabel": false,
+                "buttonLabelNext": "Next",
+                "buttonLabelBack": "Back",
+                "addMedia": false,
+                "range": {
+                    "min": 1,
+                    "max": 11
+                },
+                "step": 2,
+                "label": {
+                    "start": "Label start",
+                    "middle": "Label mid ",
+                    "end": "Label End"
+                },
+                "layoutType": "grid",
+                "showMarks": true
+            }
+        }
+    ],
+    "testSettings": {
+        "required": false,
+        "timeLimit": "1000",
+        "allowNext": true,
+        "allowBack": true,
+        "autoNext": false,
+        "hideQuestionNumber": false,
+        "randomizeQuestionOrder": false,
+        "randomizeAnswerOrder": false,
+        "showProgressBar": false,
+        "prefixEnabled": false,
+        "bottomLabelEnabled": true,
+        "welcomePage": {
+            "enabled": true,
+            "content": "<p>🎉 <em>Welcome to Your Journey!</em> 🌈<br>We’re excited to have you here. This short test is all about <strong>you</strong> — your ideas, your preferences, and your unique perspective.<br>Grab a cup of coffee ☕, relax 😌, and let’s get started! 🚀✨</p><hr>"
+        },
+        "finalPage": {
+            "content": "<p>🎯 <em>You’ve made it to the finish line!</em> 🎉<br>Thank you for sharing your thoughts and time with us. Your answers will help us create something better — together.<br>Here’s to new beginnings 🌱 and exciting possibilities ahead</p>",
+            "buttonLabel": "finish btn"
+        },
+        "questionsTimeLimit": "90",
+        "selectedTemplate": "default",
+        "selectedLanguage": "en",
+        "qTitle": "tst title",
+        "shortName": "AliAz",
+        "key": "in key hast",
+        "country": "Category 4",
+        "tags": [
+            {
+                "title": "The Matrix",
+                "year": 1999
+            },
+            {
+                "title": "The Lord of the Rings: The Return of the King",
+                "year": 2003
+            }
+        ],
+        "selectedTestType": true
+    },
+    "variables": [
+        {
+            "id": "zh8z-AiqoH6g6QYJVQyGv",
+            "key": "Name",
+            "questionText": " Hey, what’s your name, mysterious stranger? 😏 ?  Key: Name - Variable"
+        },
+        {
+            "id": "CD5jBB_oF7QoLFyx8u2bi",
+            "key": "email",
+            "questionText": "enter email : Example - Button Label - Key : email -Variable"
+        }
+    ]
+}
