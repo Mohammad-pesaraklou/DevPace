@@ -1,6 +1,6 @@
-import Joi, { object } from "joi";
+import Joi from "joi";
 
-export const BoardSchema = object({
+export const BoardSchema = Joi.object({
   title: Joi.string().min(3).required(),
   settings: Joi.object(),
   stared: Joi.boolean(),

@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
         email: verifyRes.email,
         _id: verifyRes.id,
       };
-      let accessToken = genAccToken(userObj);
+      const accessToken = genAccToken(userObj);
       delete userObj._id;
       userObj["id"] = verifyRes.id;
 

@@ -1,4 +1,3 @@
-import { object } from "joi";
 import { Types } from "mongoose";
 import { IColumn } from "./column.type";
 import { ITask, TaskType } from "./tasks.types";

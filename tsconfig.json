@@ -10,13 +10,13 @@
     "module": "esnext",
     "strictNullChecks": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
+
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["./src/*"],
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
       "@configs/*": ["./src/configs/*"],

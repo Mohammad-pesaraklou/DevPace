@@ -9,7 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSession, requireAuth } from "@/shared/lib/auth";
 import { Types } from "mongoose";
 import { AUTH_MESSAGES } from "@/validation/messages/auth.messages";
-let mockData = [
+const mockData = [
   {
     id: "6122333232",
     title: "some title",

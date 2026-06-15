@@ -6,8 +6,7 @@ import connectToDb from "@/shared/lib/mongodb";
 import { IMoveColumnPayload } from "@/shared/types/column.type";
 import { ID } from "@/shared/types/types";
 import { CheckValidObjectID } from "@/shared/utils/auth.util";
-import { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 export async function POST(req: NextRequest) {

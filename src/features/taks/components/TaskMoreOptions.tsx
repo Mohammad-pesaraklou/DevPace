@@ -1,12 +1,8 @@
 "use client";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { useState } from "react";
 import { Menu, MenuItem, IconButton } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import {
-  BordMoreOptons,
-  TaskMoreOptons,
-  TBordMoreOptions,
-} from "@/constant/bord";
+import { TaskMoreOptons, TBordMoreOptions } from "@/constant/bord";
 import useBordStore from "@/store/createBoardSlice";
 import Modal from "@/shared/ui/modals/Modal";
 

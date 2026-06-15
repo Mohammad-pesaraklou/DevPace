@@ -234,7 +234,7 @@ const useBordStore: UseBoundStore<StoreApi<StateStore>> = create(
         .sort((a, b) => a.order - b.order)
         .at(-1);
 
-      let newOrder = getNewOrder(lastTask?.order);
+      const newOrder = getNewOrder(lastTask?.order);
       const tempId = generateId(13);
       const tempTask = {
         _id: tempId,

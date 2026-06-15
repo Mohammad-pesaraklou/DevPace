@@ -1,7 +1,7 @@
-import Joi, { object } from "joi";
+import Joi from "joi";
 import { AUTH_MESSAGES } from "../messages/auth.messages";
 
-const loginValidateSchema = object({
+const loginValidateSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string()
     .min(8)
