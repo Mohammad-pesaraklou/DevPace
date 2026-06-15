@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   applicationName: "Kanban Pro",
   creator: "MR_ROBOT",
   icons: "/vercel.svg",
+  manifest: "/manifest.json",
   openGraph: {
     type: "website",
     url: "/",

@@ -1,15 +1,34 @@
 import bundleAnalyzer from "@next/bundle-analyzer";
-
+import withPWAInit from "@ducanh2912/next-pwa";
+import { NextConfig } from "next";
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const withPWA = withPWAInit({
+  dest: "public",
+  sw: "sw.js",
+  disable: process.env.NODE_ENV === "development",
+  workboxOptions: {
+    runtimeCaching: [
+      {
+        urlPattern: /^https:\/\/fonts\.(?:gstatic|googleapis)\.com/i,
+        handler: "CacheFirst",
+        options: {
+          cacheName: "google-fonts",
+          expiration: {
+            maxEntries: 20,
+            maxAgeSeconds: 60 * 60 * 24 * 365,
+          },
+        },
+      },
+    ],
+  },
+});
+const nextConfig: NextConfig = {
   experimental: {
     // typedRoutes: true,
     // ppr: true,
-    serverActions: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
@@ -41,4 +60,4 @@ const nextConfig = {
   },
 };
 
-export default withBundleAnalyzer(nextConfig);
+export default withBundleAnalyzer(withPWA(nextConfig));

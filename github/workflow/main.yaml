@@ -1,6 +1,0 @@
-project: Kanban Pro
-name: CI/CD
-on:
-  pull_request:
-    branches: [main]
-jobs:
