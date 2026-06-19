@@ -49,6 +49,24 @@ export default defineConfig([
       "no-duplicate-imports": "error",
       "prefer-const": "error",
       eqeqeq: ["error", "always"],
+      "padding-line-between-statements": [
+        "error",
+        // return section
+        { blankLine: "always", prev: "*", next: "return" },
+
+        // imports
+        { blankLine: "always", prev: "import", next: "*" },
+        { blankLine: "any", prev: "import", next: "import" },
+
+        // func / class
+        { blankLine: "always", prev: "*", next: "function" },
+        { blankLine: "always", prev: "function", next: "*" },
+        { blankLine: "always", prev: "*", next: "class" },
+        { blankLine: "always", prev: "class", next: "*" },
+
+        // (if, for, switch, try)
+        { blankLine: "always", prev: "*", next: "block-like" },
+      ],
     },
   },
 ]);

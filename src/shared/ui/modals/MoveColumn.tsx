@@ -24,9 +24,11 @@ function MoveColumn({ open, setOpen, columnId }: Props) {
   const [toBordId, setToBordID] = useState<string>("");
   const selectedColumnId = useColumnStore((state) => state.selectedColumnId);
   console.log({ columnId, selectedColumnId });
+
   async function handleMove() {
     if (!selectedColumnId || !borderId) {
       toast.error("invalid data");
+
       return;
     }
     moveColToOtherBord({
@@ -71,4 +73,5 @@ function MoveColumn({ open, setOpen, columnId }: Props) {
     </Dialog>
   );
 }
+
 export default MoveColumn;

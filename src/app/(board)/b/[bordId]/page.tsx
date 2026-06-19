@@ -35,6 +35,7 @@ async function BordContent({ bordId }: { bordId: string }) {
 
   if (bordData) error = null;
   if (error) return <Typography variant="h3">{error}</Typography>;
+
   return <ColumnList bordData={filterRawBoardData(bordData, bordId)} />;
 }
 

@@ -17,17 +17,21 @@ function TaskMoreOptions({ taskId }: Props) {
 
   const deleteColumnAction = useBordStore((state) => state.deleteColumnAction);
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleSelect = async (item: TBordMoreOptions) => {
     setSelected(item.title);
     console.log("item.", item);
+
     if (item.title === "Delete") {
       setConfirmDelete(true);
     }
     handleClose();
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };

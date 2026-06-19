@@ -17,6 +17,7 @@ function ColumnSkeletonWrapper() {
     </div>
   );
 }
+
 function ColumnSkeleton() {
   return (
     <ColumnWrapper>
@@ -27,6 +28,7 @@ function ColumnSkeleton() {
     </ColumnWrapper>
   );
 }
+
 ColumnSkeletonWrapper.ColumnSkeleton = ColumnSkeleton;
 
 export default ColumnSkeletonWrapper;

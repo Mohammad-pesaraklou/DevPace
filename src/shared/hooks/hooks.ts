@@ -15,6 +15,7 @@ export function useDebounce<T extends (...arg: any[]) => void>(
       fn(...arg);
     }, time);
   };
+
   return deboncedFn;
 }
 

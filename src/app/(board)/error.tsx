@@ -11,6 +11,7 @@ export default function Error({
   reset: () => void;
 }) {
   console.log({ error });
+
   return (
     <Container maxWidth="sm">
       <Box

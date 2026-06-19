@@ -9,6 +9,7 @@ export default function AppThemeProvider({
   children: React.ReactNode;
 }) {
   const theme = getTheme();
+
   return (
     <ThemeProvider theme={theme} defaultMode="dark">
       <CssBaseline />

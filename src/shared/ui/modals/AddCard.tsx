@@ -32,17 +32,22 @@ function AddCard({ open, setOpen }: Props) {
   const addTask = useBordStore((state) => state.addTask);
   const tasks = useBordStore((state) => state.tasks);
   const columnId = useColumnStore((state) => state.selectedColumnId);
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     console.log("payload sent to add task", { name, type, columnId });
+
     if (!type || !columnId) {
       toast.error("please add a type");
+
       return;
     }
     addTask({ name, columnId, type });
     setOpen(false);
   }
+
   console.log({ tasks, name, type });
+
   return (
     <Dialog open={open} onClose={() => setOpen(false)} fullWidth>
       <DialogTitle align="center">Add Card</DialogTitle>

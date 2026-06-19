@@ -14,9 +14,11 @@ export async function createTaskAction(
       body: JSON.stringify(payload),
     });
     console.log("response for create task action", response);
+
     if (payload.bordId && response?.success) {
       revalidateTag(`bord/${payload.bordId}`);
     }
+
     return response;
   } catch (error) {
     console.log("error in create Task Action", error);

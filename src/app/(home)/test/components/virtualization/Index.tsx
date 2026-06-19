@@ -3,7 +3,9 @@ import { Virtuoso } from "react-virtuoso";
 import { faker } from "@faker-js/faker";
 import { nanoid } from "nanoid";
 import { Container, Typography } from "@mui/material";
+
 const INITIAL_ITEM_COUNT = 10000;
+
 const generateMessages = (count: number) => {
   return Array.from({ length: count }, (_, i) => ({
     id: nanoid(),
@@ -16,8 +18,10 @@ const generateMessages = (count: number) => {
 function useUser() {
   return "user_123";
 }
+
 type TMessage = ReturnType<typeof generateMessages>[number];
 type TNormalizedState = Record<string, TMessage>;
+
 function normalizedState(state: TMessage[]) {
   return state.reduce((acc, cur) => {
     acc[cur.id] = cur;

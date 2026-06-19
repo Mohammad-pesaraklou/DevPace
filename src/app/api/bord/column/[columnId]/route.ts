@@ -11,6 +11,7 @@ export async function PUT(
 ) {
   try {
     const authResult = await requireAuth(req);
+
     if (authResult instanceof NextResponse) {
       return authResult;
     }
@@ -35,6 +36,7 @@ export async function PUT(
       message: API_MESSAGES.COLUMN_RENMAE,
       data: column,
     };
+
     return NextResponse.json(response, { status: 201 });
   } catch (error) {
     console.log("error in route handler", error);
@@ -47,12 +49,14 @@ export async function PUT(
     return NextResponse.json(response, { status: 500 });
   }
 }
+
 export async function DELETE(
   req: NextRequest,
   { params }: Params<{ columnId: string }>,
 ) {
   try {
     const authResult = await requireAuth(req);
+
     if (authResult instanceof NextResponse) {
       return authResult;
     }
@@ -69,6 +73,7 @@ export async function DELETE(
       success: true,
       message: API_MESSAGES.COLUMN_DELETED,
     };
+
     return NextResponse.json(response, { status: 201 });
   } catch (error) {
     console.log("error in route handler", error);

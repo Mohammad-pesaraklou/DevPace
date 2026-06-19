@@ -22,16 +22,19 @@ function LoginForm() {
   const submitHandler = async (data) => {
     const res = await loginAction(data);
     console.log("response", res);
+
     if (res.success) {
       toast.success(res.message);
       router.replace("/");
     } else {
       toast.error(res.message);
+
       if (res.error) {
         toast.error(res.error);
       }
     }
   };
+
   return (
     <form
       onSubmit={handleSubmit(submitHandler)}

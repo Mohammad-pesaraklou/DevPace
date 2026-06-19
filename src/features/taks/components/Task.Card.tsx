@@ -30,6 +30,7 @@ const TaskTitle = styled(Typography)(() => ({
   lineHeight: 1.4,
   wordBreak: "break-word",
 }));
+
 {
   /* future: avatar / comments count / attachments */
 }

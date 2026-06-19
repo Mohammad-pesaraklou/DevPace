@@ -55,6 +55,7 @@ export default function FileUpload({
     onFileRemove();
   };
   console.log({ performance });
+
   return (
     <Box sx={{ width: "100%", mt: 2 }}>
       {!file ? (

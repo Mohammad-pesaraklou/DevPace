@@ -20,16 +20,19 @@ export async function createColumn(
     })) as HttpResponse<IColumn> | undefined;
 
     const bordId = response?.data?.bordId;
+
     if (bordId) {
       revalidateTag(`bord/${String(bordId)}`);
     }
 
     console.log("repsonse in create col ", response);
+
     return response;
   } catch (error) {
     if (error.message === AUTH_MESSAGES.UNAUTHORIZED) await forceLogout();
 
     console.log("error happen in createColumn", error);
+
     return error;
   }
 }
@@ -54,6 +57,7 @@ export async function renameColumnAction(
     if (error.message === AUTH_MESSAGES.UNAUTHORIZED) await forceLogout();
 
     console.log("error happen in renameColumnAction", error);
+
     return error;
   }
 }
@@ -66,6 +70,7 @@ export async function deleteColumnAction(
     const response = await apiFetch(`api/bord/column/${colId}`, {
       method: "DELETE",
     });
+
     if (bordId) {
       revalidateTag(`bord/${String(bordId)}`);
       revalidatePath(`bord/${String(bordId)}`);
@@ -76,6 +81,7 @@ export async function deleteColumnAction(
     if (error.message === AUTH_MESSAGES.UNAUTHORIZED) await forceLogout();
 
     console.log("error happen in deleting column", error);
+
     return error;
   }
 }
@@ -90,16 +96,19 @@ export async function moveColumnAction({
       method: "POST",
       body: JSON.stringify({ from, to, colId }),
     });
+
     if (from && to && response?.success) {
       revalidateTag(`bord/${String(from)}`);
       revalidateTag(`bord/${String(to)}`);
     }
     console.log("moveColumnAction in action repsonse", { response });
+
     return response;
   } catch (error) {
     if (error.message === AUTH_MESSAGES.UNAUTHORIZED) await forceLogout();
 
     console.log("error happen in deleting column", error);
+
     return error;
   }
 }

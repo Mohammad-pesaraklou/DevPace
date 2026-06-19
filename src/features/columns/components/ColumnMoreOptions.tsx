@@ -24,20 +24,25 @@ function ColumnMoreOptions({ columnId, setIsEdit }: Props) {
   );
   const deleteColumnAction = useBordStore((state) => state.deleteColumnAction);
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleSelect = async (item: TBordMoreOptions) => {
     setSelected(item.title);
+
     switch (item.key) {
       case "delete": {
         setConfirmDelete(true);
         break;
       }
+
       case "rename": {
         setIsEdit(true);
         break;
       }
+
       case "move": {
         setShowMoveColumn(true);
         setSelectedColumnId(columnId);
@@ -50,9 +55,11 @@ function ColumnMoreOptions({ columnId, setIsEdit }: Props) {
 
     handleClose();
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <React.Fragment>
       <IconButton

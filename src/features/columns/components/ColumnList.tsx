@@ -82,6 +82,19 @@ function ColumnList({ bordData }: Props) {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
+      <button
+        onClick={() => {
+          const startTime = performance.now();
+
+          // Artificial long task: Block the main thread for 400ms
+          while (performance.now() - startTime < 400) {
+            // Do nothing, just freeze the browser execution
+          }
+          console.log("Heavy operation completed");
+        }}
+      >
+        Test Heavy Interaction (INP)
+      </button>
       <Droppable droppableId="columns" direction="horizontal" type="COLUMN">
         {(provided) => (
           <ColumnContainer ref={provided.innerRef} {...provided.droppableProps}>

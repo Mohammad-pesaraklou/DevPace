@@ -1,6 +1,7 @@
 import bundleAnalyzer from "@next/bundle-analyzer";
 import withPWAInit from "@ducanh2912/next-pwa";
 import { NextConfig } from "next";
+
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
@@ -19,6 +20,17 @@ const withPWA = withPWAInit({
           expiration: {
             maxEntries: 20,
             maxAgeSeconds: 60 * 60 * 24 * 365,
+          },
+        },
+      },
+      {
+        urlPattern: /\/api\/posts/i,
+        handler: "StaleWhileRevalidate",
+        options: {
+          cacheName: "posts-feed-cache",
+          expiration: {
+            maxEntries: 50,
+            maxAgeSeconds: 60 * 60 * 24 * 7,
           },
         },
       },

@@ -216,6 +216,7 @@ const useBordStore: UseBoundStore<StoreApi<StateStore>> = create(
           columns: (() => {
             const rollbackCols = { ...state.columns };
             delete rollbackCols[tempId];
+
             return rollbackCols;
           })(),
         }));
@@ -254,12 +255,14 @@ const useBordStore: UseBoundStore<StoreApi<StateStore>> = create(
           bordId,
           order: newOrder,
         });
+
         if (!res?.success) {
           toast.error(
             res?.message ?? "something went wrong in creating the task",
           );
           const taskSnapshot = get().tasks;
           RollbackHandler({ state: taskSnapshot, tempId, set, key: "tasks" });
+
           return;
         }
         const newTask = res?.data!;
@@ -296,6 +299,7 @@ const useBordStore: UseBoundStore<StoreApi<StateStore>> = create(
 
       try {
         const response = await renameColumnAction(colName, id, bordId);
+
         if (!response?.success) {
           toast.error("something wrong in renaming the column");
           const filtredCols = updateCol.map((col) =>
@@ -303,6 +307,7 @@ const useBordStore: UseBoundStore<StoreApi<StateStore>> = create(
           );
           finalColumns = normalizeArrayToObj(filtredCols, {});
           set({ columns: finalColumns });
+
           return;
         }
         const newColumns = Object.values(get().columns);
@@ -324,6 +329,7 @@ const useBordStore: UseBoundStore<StoreApi<StateStore>> = create(
         );
         finalColumns = normalizeArrayToObj(filtredCols, {});
         set({ columns: finalColumns });
+
         return;
       }
     },
@@ -361,9 +367,11 @@ const useBordStore: UseBoundStore<StoreApi<StateStore>> = create(
       const normilizedColObj = normalizeArrayToObj(filtredCols, {});
       console.log("%*%", from, to, colId, filtredCols);
       set({ columns: normilizedColObj });
+
       try {
         const response = await moveColumnAction({ from, to, colId });
         console.log("moveColumnAction", response);
+
         if (!response?.success) {
           toast.error(
             response?.message || response?.error || "somehting went wrong!",
@@ -374,6 +382,7 @@ const useBordStore: UseBoundStore<StoreApi<StateStore>> = create(
             {},
           );
           set({ columns: { ...normilizedColObj } });
+
           return;
         }
         toast.success(response.message);

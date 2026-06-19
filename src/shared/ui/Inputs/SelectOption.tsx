@@ -17,10 +17,12 @@ import { useQuery } from "@tanstack/react-query";
 import { getBoardsClient } from "@/features/bord/actions/bord.actions";
 import useBordStore from "@/store/createBoardSlice";
 import useAuth from "@/store/authSlice";
+
 interface Props {
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
 }
+
 export default function SelectOption({ setValue, value }: Props) {
   const [search, setSearch] = React.useState("");
   const [touched, setTouched] = React.useState(false);
@@ -36,6 +38,7 @@ export default function SelectOption({ setValue, value }: Props) {
           .map((bord) => ({ _id: bord._id, title: bord.title }))
           .filter((item) => item._id !== borderId);
       }
+
       return [];
     },
   });
@@ -45,6 +48,7 @@ export default function SelectOption({ setValue, value }: Props) {
   const filtredData = React.useMemo(() => {
     const query = search.trim().toLowerCase();
     if (!query) return data ?? [];
+
     return (
       data?.filter((bord) => bord.title.toLowerCase().includes(query)) ?? []
     );
@@ -79,6 +83,7 @@ export default function SelectOption({ setValue, value }: Props) {
                 </span>
               );
             }
+
             return (
               <Typography variant="body1">{getLabel(selected)}</Typography>
             );
@@ -141,6 +146,7 @@ export default function SelectOption({ setValue, value }: Props) {
           {!isLoading &&
             filtredData.map((bord) => {
               const selected = value === String(bord._id);
+
               return (
                 <MenuItem
                   key={String(bord._id)}

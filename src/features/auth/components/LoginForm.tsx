@@ -4,10 +4,12 @@ import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginValidation, LoginValidation } from "@/validation/form.validation";
 import { useForm } from "react-hook-form";
+
 function LoginForm() {
   const { register } = useForm<LoginValidation>({
     resolver: zodResolver(loginValidation),
   });
+
   return (
     <>
       <Typography align="center" variant="h1">

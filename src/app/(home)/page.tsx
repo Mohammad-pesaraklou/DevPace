@@ -7,6 +7,7 @@ import BoardsPage from "@/features/bord/components/BoardsPage";
 
 async function HomePage() {
   const session = await getSession();
+
   if (!session) {
     return <Hero />;
   }

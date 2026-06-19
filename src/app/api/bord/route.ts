@@ -9,6 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSession, requireAuth } from "@/shared/lib/auth";
 import { Types } from "mongoose";
 import { AUTH_MESSAGES } from "@/validation/messages/auth.messages";
+
 const mockData = [
   {
     id: "6122333232",
@@ -44,6 +45,7 @@ export async function GET(req: NextRequest) {
     // const userId = session.id;
 
     const auth_result = await requireAuth(req);
+
     if (auth_result instanceof NextResponse) {
       return auth_result;
     }
@@ -55,9 +57,11 @@ export async function GET(req: NextRequest) {
       data: boards,
       success: true,
     };
+
     return NextResponse.json(response, { status: 200 });
   } catch (error) {
     console.log("error in route handler", error);
+
     return NextResponse.json(
       { success: false, message: "خطای داخلی سرور رخ داده است" },
       { status: 500 },
@@ -69,6 +73,7 @@ export async function POST(req: NextRequest) {
   try {
     await connectToDb();
     const authResult = await requireAuth(req);
+
     if (authResult instanceof NextResponse) {
       return authResult;
     }
@@ -76,6 +81,7 @@ export async function POST(req: NextRequest) {
     const body: BordPayload = await req.json();
     const { title, settings, stared } = body;
     const validateBody = ValidateBody(BoardSchema, body);
+
     if (validateBody instanceof NextResponse) {
       return validateBody;
     }
@@ -86,6 +92,7 @@ export async function POST(req: NextRequest) {
       success: true,
       message: API_MESSAGES.BOARD_CREATED,
     };
+
     return NextResponse.json(response, { status: 201 });
   } catch (error) {
     console.log("error in route handler", error);

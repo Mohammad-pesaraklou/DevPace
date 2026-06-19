@@ -6,6 +6,7 @@ export async function loginAction(
   data: LoginValidation,
 ): Promise<HttpResponse<LoginResponse> | HttpResponse<undefined>> {
   console.log({ data });
+
   try {
     const response = await fetch(`/api/auth/login`, {
       method: "POST",
@@ -20,6 +21,7 @@ export async function loginAction(
     return result;
   } catch (error) {
     console.log(error);
+
     return error;
   }
 }
@@ -32,6 +34,7 @@ export async function logoutAction() {
     window.location.href = "/";
   } catch (error) {
     console.log(error);
+
     return error;
   }
 }

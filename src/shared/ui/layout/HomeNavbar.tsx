@@ -5,6 +5,7 @@ import Link from "next/link";
 import { AppBar, Box, Button, Stack, Toolbar } from "@mui/material";
 import UserProfile from "../components/UserProfile";
 import NewBoardBtn from "../components/NewBoardBtn";
+
 // components
 function HomeNavbar() {
   return (

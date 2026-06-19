@@ -23,6 +23,7 @@ function RHFCheckBox<T extends FieldValues>({ name, label }: TRHFCheckBox<T>) {
     fieldState: { error },
   } = useController({ control, name });
   console.log({ error });
+
   return (
     <FormControl error={!!error}>
       <FormControlLabel

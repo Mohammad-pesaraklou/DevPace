@@ -33,5 +33,6 @@ export default async function connectToDb() {
   }
 
   cached!.conn = await cached!.promise;
+
   return cached!.conn;
 }
