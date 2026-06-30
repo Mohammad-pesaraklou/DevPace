@@ -14,6 +14,7 @@ function MainIndex() {
     permissions: ["programmer"],
     address: { city: "Yazd", zip: "12345" },
   };
+
   const isObject = (item: any): Record<string, any> => {
     return item && typeof item === "object" && !Array.isArray(item);
   };

@@ -9,15 +9,18 @@ function UserProfile() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [selected, setSelected] = useState("");
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleSelect = (item: IUserProfileItems) => {
     setSelected(item.title);
     const func = item.action ? item.action : null;
     if (func) func();
     handleClose();
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };

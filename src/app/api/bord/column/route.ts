@@ -9,6 +9,7 @@ export async function POST(req: NextRequest) {
   try {
     await connectToDb();
     const authResult = await requireAuth(req);
+
     if (authResult instanceof NextResponse) {
       return authResult;
     }
@@ -24,6 +25,7 @@ export async function POST(req: NextRequest) {
       data: column,
       message: API_MESSAGES.COLUMN_CREATED,
     };
+
     return NextResponse.json(response, { status: 201 });
   } catch (error) {
     console.log("error in route handler", error);

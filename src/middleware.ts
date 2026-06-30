@@ -10,19 +10,24 @@ export async function middleware(request: NextRequest) {
   const refreshToken = request.cookies.get("refreshToken")?.value;
 
   const isPublic = publicPages.includes(pathname);
+
   if (!refreshToken) {
     if (!isPublic) {
       const loginUrl = new URL("/login", request.url);
+
       return NextResponse.redirect(loginUrl);
     }
+
     return NextResponse.next();
   }
+
   // verify refreshToken
   try {
     await jwtVerify(refreshToken, secret);
   } catch {
     const res = NextResponse.redirect(new URL("/login", request.url));
     res.cookies.delete("refreshToken");
+
     return res;
   }
 

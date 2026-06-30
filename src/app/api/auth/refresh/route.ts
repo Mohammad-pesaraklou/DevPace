@@ -11,6 +11,7 @@ export async function POST(req: NextRequest) {
   try {
     await connectToDb();
     const refreshToken = (await cookies()).get("refreshToken")?.value;
+
     // console.log("refresh token in refshresh route", refreshToken);
     if (!refreshToken) {
       return NextResponse.json(
@@ -22,6 +23,7 @@ export async function POST(req: NextRequest) {
 
     if (verifyRes?.id) {
       const user = await UserModel.findById(verifyRes.id).lean();
+
       if (!user) {
         return NextResponse.json(
           { success: false, message: AUTH_MESSAGES.UNAUTHORIZED },
@@ -32,7 +34,7 @@ export async function POST(req: NextRequest) {
         email: verifyRes.email,
         _id: verifyRes.id,
       };
-      let accessToken = genAccToken(userObj);
+      const accessToken = genAccToken(userObj);
       delete userObj._id;
       userObj["id"] = verifyRes.id;
 
@@ -42,13 +44,16 @@ export async function POST(req: NextRequest) {
       );
 
       response.cookies.set("accessToken", accessToken, accessTokenOptions);
+
       return response;
     }
   } catch (error) {
     console.log("error in refresh route", error);
+
     if (error?.message === AUTH_MESSAGES.JWT_MALFORMED) {
       (await cookies()).delete("refreshToken");
     }
+
     return NextResponse.json(
       { success: false, message: AUTH_MESSAGES.UNAUTHORIZED },
       { status: 401 },

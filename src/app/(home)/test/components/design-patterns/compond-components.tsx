@@ -13,6 +13,7 @@ function useTabs() {
   const context = useContext(TabContext);
   if (!context)
     throw new Error("Tabs components must be used within a <Tabs />");
+
   return context;
 }
 

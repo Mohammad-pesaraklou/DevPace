@@ -18,9 +18,11 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
         if (isPublic) return setLoading(false);
 
         const response = await refreshRequest();
+
         // console.log("response in auth provider", response);
         if (!response || !("user" in response)) {
           replace("/login");
+
           return;
         }
         setUser(response?.user!);
@@ -28,9 +30,11 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
         setLoading(false);
       }
     }
+
     authInit();
   }, []);
   if (loading) return <Loader />;
+
   return children;
 }
 

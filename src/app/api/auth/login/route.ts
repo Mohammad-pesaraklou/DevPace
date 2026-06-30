@@ -13,6 +13,7 @@ import {
 import { loginValidateSchema } from "@/validation/server/login.validation";
 import { NextRequest, NextResponse } from "next/server";
 import { LoginValidation } from "@/validation/form.validation";
+
 export async function POST(req: NextRequest) {
   try {
     await connectToDb();
@@ -20,6 +21,7 @@ export async function POST(req: NextRequest) {
 
     console.log({ body });
     const validateResponse = ValidateBody(loginValidateSchema, body);
+
     // check body
     if (validateResponse instanceof NextResponse) {
       return validateResponse;
@@ -32,6 +34,7 @@ export async function POST(req: NextRequest) {
 
     if (existedUser) {
       const compareRes = compareHashedPass(body.password, existedUser.password);
+
       if (!compareRes) {
         return NextResponse.json(
           { message: "invalid email or password", success: false },

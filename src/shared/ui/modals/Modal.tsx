@@ -48,4 +48,5 @@ function Modal({ open, setOpen, action, message }: Props) {
     </Dialog>
   );
 }
+
 export default Modal;

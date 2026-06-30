@@ -6,8 +6,8 @@ import connectToDb from "@/shared/lib/mongodb";
 import { IMoveColumnPayload } from "@/shared/types/column.type";
 import { ID } from "@/shared/types/types";
 import { CheckValidObjectID } from "@/shared/utils/auth.util";
-import { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+
 export const runtime = "nodejs";
 
 export async function POST(req: NextRequest) {
@@ -19,6 +19,7 @@ export async function POST(req: NextRequest) {
     const { from, to, colId } = body;
     console.log({ from, to, colId });
     const isValidId = CheckValidObjectID([from, to, colId]);
+
     if (!isValidId) {
       const response = {
         success: false,

@@ -19,6 +19,7 @@ async function refreshRequest() {
         method: "POST",
         credentials: "include",
       });
+
       // console.log("responsse retrun from api/redresh", response);
       if (response.status === 401 || response.status === 403) {
         return {
@@ -29,6 +30,7 @@ async function refreshRequest() {
       }
       // console.log({ response });
       const { data } = await response.json();
+
       if (!("accessToken" in data)) {
         return {
           message: "invalid data",
@@ -36,6 +38,7 @@ async function refreshRequest() {
           status: 400,
         } as HttpResponse;
       }
+
       return {
         accessToken: data.accessToken,
         user: data.user,

@@ -20,12 +20,14 @@ export async function getBoardsClient(
   userId: string,
 ): Promise<IBord[] | HttpResponse> {
   console.log("get boards called");
+
   try {
     const response = await apiFetch(`api/bord`, {
       next: { tags: [`boards`] },
     });
 
     console.log("response in getting boards", response);
+
     return response?.data;
   } catch (error) {
     console.log("error in getBoards", error);
@@ -57,8 +59,10 @@ const getBoardsCached = unstable_cache(
 
 export async function getBoards(userId: string): Promise<IBord[] | undefined> {
   const boards = await getBoardsCached(userId);
+
   return SafeParser(boards);
 }
+
 export async function createBoard({
   title,
 }: BordPayload): Promise<HttpResponse<IBord> | undefined> {
@@ -103,6 +107,7 @@ export async function getBordData(
   // console.log("*** getBordData called ", { bordId: id });
 
   const bord = await BoardModel.findById(id, {}).lean();
+
   if (String(bord.creator) !== userId) {
     throw new Error("dont allow!");
   }
@@ -112,5 +117,6 @@ export async function getBordData(
     })
     .lean();
   const tasks = await TaskModel.find({ bordId: id }).sort({ order: 1 }).lean();
+
   return SafeParser<IBordDetails>({ bord, columns, tasks });
 }

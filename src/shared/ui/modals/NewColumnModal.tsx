@@ -9,10 +9,12 @@ import {
   DialogActions,
 } from "@mui/material";
 import { FormEvent, useState } from "react";
+
 interface Props {
   open: boolean;
   setOpen: (bool: boolean) => void;
 }
+
 function NewColumnModal() {
   const addColumn = useBordStore((state) => state.addColumn);
   const bordId = useBordStore((state) => state.bord?._id)!;
@@ -26,9 +28,11 @@ function NewColumnModal() {
     e.preventDefault();
     console.log("rnnnn");
     setIsLoading(true);
+
     try {
       if (name.trim().length < 3) {
         setError(true);
+
         return;
       }
       console.log("payload", { bordId, name });
@@ -40,6 +44,7 @@ function NewColumnModal() {
       setOpen(false);
     }
   }
+
   return (
     <>
       <Button onClick={() => setOpen(true)} variant="contained">
@@ -93,4 +98,5 @@ function NewColumnModal() {
     </>
   );
 }
+
 export default NewColumnModal;

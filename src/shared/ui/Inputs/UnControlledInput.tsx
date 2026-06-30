@@ -12,5 +12,5 @@ const UnControlledInput = forwardRef<HTMLInputElement, ComponentProps<"input">>(
     );
   },
 );
-
+UnControlledInput.displayName = "UnControlledInput";
 export default UnControlledInput;

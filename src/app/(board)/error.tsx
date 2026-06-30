@@ -11,6 +11,7 @@ export default function Error({
   reset: () => void;
 }) {
   console.log({ error });
+
   return (
     <Container maxWidth="sm">
       <Box
@@ -33,7 +34,7 @@ export default function Error({
         </Typography>
 
         <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
-          We couldn't load your board. Please check your connection or try
+          We {`couldn't`} load your board. Please check your connection or try
           again.
         </Typography>
 

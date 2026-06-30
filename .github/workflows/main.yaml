@@ -1,0 +1,47 @@
+name: Kanban Project CI
+
+env:
+  NODE_ENV: production
+  DB_URL: ${{ secrets.DB_URL }}
+  PRIVATE_JWT_TOKEN: ${{ secrets.PRIVATE_JWT_TOKEN }}
+  NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+on:
+  pull_request:
+    branches: [main, dev]
+    # paths:
+    #   - "src/**"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  code-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Env
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Cache Next.js & Node Modules
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-kanban-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-kanban-${{ hashFiles('**/package-lock.json') }}-
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Check code formatting and errors (Lint)
+        run: npm run lint --quiet
+
+      - name: Build Project
+        run: npm run build

@@ -4,5 +4,6 @@ export async function GET(req: NextRequest) {
   const response = NextResponse.redirect(new URL("/login", req.url));
   response.cookies.delete("refreshToken");
   response.cookies.delete("accessToken");
+
   return response;
 }

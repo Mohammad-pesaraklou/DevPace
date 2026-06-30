@@ -14,6 +14,7 @@ export async function GET(
   try {
     await connectToDb();
     const authResult = await requireAuth(req);
+
     if (authResult instanceof NextResponse) {
       return authResult;
     }

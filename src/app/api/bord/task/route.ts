@@ -5,6 +5,7 @@ import { ITask, TaskType } from "@/shared/types/tasks.types";
 import { NextRequest, NextResponse } from "next/server";
 
 type TBody = Omit<ITask, "_id">;
+
 export async function POST(req: NextRequest) {
   try {
     await connectToDb();

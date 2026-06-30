@@ -10,6 +10,7 @@ import { ID } from "../types/types";
 export async function requireAuth(request: NextRequest) {
   const authHeader = request.headers.get("authorization");
   const cookieStore = await cookies();
+
   if (!authHeader) {
     return NextResponse.json(
       { message: AUTH_MESSAGES.UNAUTHORIZED },
@@ -20,6 +21,7 @@ export async function requireAuth(request: NextRequest) {
 
   if (prefix !== "Bearer") {
     cookieStore.delete("accessToken");
+
     return NextResponse.json(
       { message: AUTH_MESSAGES.UNAUTHORIZED },
       { status: 401 },
@@ -32,11 +34,14 @@ export async function requireAuth(request: NextRequest) {
       { status: 401 },
     );
   }
+
   try {
     const payload = jwt.verify(token, process.env.PRIVATE_JWT_TOKEN!);
+
     return { user: payload };
   } catch {
     cookieStore.delete("accessToken");
+
     return NextResponse.json(
       { message: API_MESSAGES.INVALID_TOKEN },
       { status: 401 },
@@ -52,19 +57,23 @@ type UserPayload = {
 export async function getSession(): Promise<UserPayload | false> {
   const cookieStore = await cookies();
   const refreshToken = cookieStore.get("refreshToken")?.value;
+
   if (!refreshToken) {
     return false;
   }
+
   // verify refreshToken
   try {
     const payload = (await jwt.verify(
       refreshToken,
       process.env.PRIVATE_JWT_TOKEN,
     )) as UserPayload;
+
     return payload;
   } catch (error) {
     console.log({ error });
     cookieStore.delete("refreshToken");
+
     return false;
   }
 }

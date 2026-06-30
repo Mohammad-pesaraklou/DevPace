@@ -10,6 +10,7 @@ import {
 import { useMutation } from "@tanstack/react-query";
 import { ChangeEvent, useState } from "react";
 import { toast } from "react-toastify";
+
 interface Props {
   open: boolean;
   setOpen: (bool: boolean) => void;
@@ -27,8 +28,10 @@ function NewBoardModal({ open, setOpen }: Props) {
 
   async function handleSubmit() {
     setIsLoading(true);
+
     try {
       createBordAction({ title });
+
       if (isSuccess) {
         toast.success(data?.message);
         setOpen(false);
@@ -76,4 +79,5 @@ function NewBoardModal({ open, setOpen }: Props) {
     </Dialog>
   );
 }
+
 export default NewBoardModal;

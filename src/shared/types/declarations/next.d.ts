@@ -1,4 +1,3 @@
-import "next/server";
 import { ID } from "@/shared/types/types";
 import { NextRequest } from "next/server";
 

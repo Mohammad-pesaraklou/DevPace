@@ -4,7 +4,7 @@ export function useDebounce<T extends (...arg: any[]) => void>(
   fn: T,
   time: number,
 ) {
-  let timeotId = useRef<number | null>(null);
+  const timeotId = useRef<number | null>(null);
 
   const deboncedFn = (...arg: Parameters<T>) => {
     if (timeotId.current) {
@@ -15,6 +15,7 @@ export function useDebounce<T extends (...arg: any[]) => void>(
       fn(...arg);
     }, time);
   };
+
   return deboncedFn;
 }
 

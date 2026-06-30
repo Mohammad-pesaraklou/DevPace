@@ -3,10 +3,12 @@ import { isValidObjectId, Types } from "mongoose";
 import { genSaltSync, hashSync, compareSync } from "bcrypt";
 
 import { ID } from "../types/types";
+
 export type UserPayload = {
   email: string;
   _id: string | Types.ObjectId;
 };
+
 export const genRefToken = (user: UserPayload) => {
   return jwt.sign(
     { id: user._id, email: user.email },
@@ -41,6 +43,7 @@ export const accessTokenOptions = {
 
 export const hashPassword = (pass: string) => {
   const salt = genSaltSync(10);
+
   return hashSync(pass, salt);
 };
 
@@ -51,8 +54,10 @@ export const compareHashedPass = (pass: string, hashedPass: string) => {
 export function CheckValidObjectID(id: ID | ID[]): boolean {
   if (Array.isArray(id)) {
     const cond = id.every((i) => isValidObjectId(i));
+
     return cond;
   }
+
   return isValidObjectId(id);
 }
 

@@ -13,6 +13,7 @@ export function cn(...inputs: ClassValue[]) {
 // created by chatgpt
 export function isBase64Image(imageData: string) {
   const base64Regex = /^data:image\/(png|jpe?g|gif|webp);base64,/;
+
   return base64Regex.test(imageData);
 }
 
@@ -80,9 +81,11 @@ export function normalizeArrayToObj<T extends TWithId>(
   if (typeof acc === "object") {
     return data.reduce((acc, cur) => {
       acc[String(cur._id)] = cur;
+
       return acc;
     }, acc);
   }
+
   return {};
 }
 
@@ -106,6 +109,7 @@ export function RollbackHandler<T extends object>({
   const finalData = normalizeArrayToObj(filterState, {});
   set({ [key]: finalData });
 }
+
 export function setRealDataToStateHelper<
   T extends object,
   P extends { _id: ID },

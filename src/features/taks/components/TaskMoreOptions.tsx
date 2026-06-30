@@ -1,12 +1,8 @@
 "use client";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { useState } from "react";
 import { Menu, MenuItem, IconButton } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import {
-  BordMoreOptons,
-  TaskMoreOptons,
-  TBordMoreOptions,
-} from "@/constant/bord";
+import { TaskMoreOptons, TBordMoreOptions } from "@/constant/bord";
 import useBordStore from "@/store/createBoardSlice";
 import Modal from "@/shared/ui/modals/Modal";
 
@@ -21,17 +17,21 @@ function TaskMoreOptions({ taskId }: Props) {
 
   const deleteColumnAction = useBordStore((state) => state.deleteColumnAction);
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleSelect = async (item: TBordMoreOptions) => {
     setSelected(item.title);
     console.log("item.", item);
+
     if (item.title === "Delete") {
       setConfirmDelete(true);
     }
     handleClose();
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };

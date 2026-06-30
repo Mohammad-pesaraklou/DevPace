@@ -25,6 +25,7 @@ async function handleRefreshRequest(): Promise<string | null> {
       if (!refreshRes.ok) throw new Error();
 
       const { data } = await refreshRes.json();
+
       return data.accessToken;
     } catch {
       return null;
@@ -44,6 +45,7 @@ export default async function apiFetch(url: string, init?: RequestInit) {
   tokenManager.setAccessToken(accessToken ?? null);
 
   const headers = new Headers(init?.headers);
+
   if (refreshToken) {
     headers.set("Cookie", `refreshToken=${refreshToken}`);
   }
@@ -54,8 +56,10 @@ export default async function apiFetch(url: string, init?: RequestInit) {
       Authorization: accessToken ? `Bearer ${accessToken}` : "",
     },
   });
+
   if (res.status === 401 || res.status === 403) {
     const newAccessToken = await handleRefreshRequest();
+
     if (!newAccessToken) {
       throw new Error(AUTH_MESSAGES.UNAUTHORIZED);
     }
@@ -68,5 +72,6 @@ export default async function apiFetch(url: string, init?: RequestInit) {
       },
     });
   }
+
   return res.json();
 }

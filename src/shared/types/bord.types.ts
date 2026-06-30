@@ -1,8 +1,8 @@
-import { object } from "joi";
 import { Types } from "mongoose";
 import { IColumn } from "./column.type";
 import { ITask, TaskType } from "./tasks.types";
 import { ID } from "./types";
+
 export interface IBord {
   _id: string | Types.ObjectId;
   title: string;

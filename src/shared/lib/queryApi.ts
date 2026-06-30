@@ -26,6 +26,7 @@ async function handleRefreshRequest(): Promise<string | null> {
 
       const { data } = await refreshRes.json();
       tokenManager.setAccessToken(data.accessToken);
+
       return data.accessToken;
     } catch {
       return null;
@@ -49,8 +50,10 @@ export default async function queryFetcher(url: string, init?: RequestInit) {
     },
     credentials: "include",
   });
+
   if (res.status === 401 || res.status === 403) {
     const newAccessToken = await handleRefreshRequest();
+
     if (!newAccessToken) {
       throw new Error(AUTH_MESSAGES.UNAUTHORIZED);
     }
@@ -63,5 +66,6 @@ export default async function queryFetcher(url: string, init?: RequestInit) {
       credentials: "include",
     });
   }
+
   return res.json();
 }

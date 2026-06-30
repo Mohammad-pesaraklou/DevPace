@@ -61,7 +61,7 @@ export default React.memo(function Column({ columnId, index }: IColumnProps) {
           <div
             className={`${IsEdit && "fixed inset-0 w-screen h-screen z-40"}`}
             onClick={() => setIsEdit(false)}
-          ></div>
+           />
           {/* Header */}
           <ColumnHeader
             onDoubleClick={() => setIsEdit(true)}

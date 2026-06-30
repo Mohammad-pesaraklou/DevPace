@@ -2,9 +2,11 @@ import { IBord } from "@/shared/types/bord.types";
 import BoardCard from "./Board.Card";
 import { getBoards } from "../actions/bord.actions";
 import { Grid2 } from "@mui/material";
+
 interface Props {
   userId: string;
 }
+
 async function BoardsPage({ userId }: Props) {
   const bords = await getBoards(userId);
   const renderCondition = Array.isArray(bords);

@@ -2,14 +2,26 @@ import globals from "globals";
 import pluginReact from "eslint-plugin-react";
 import nextPlugin from "@next/eslint-plugin-next";
 import { defineConfig } from "eslint/config";
+import tsParser from "@typescript-eslint/parser";
 
 export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs,jsx,ts,tsx}"],
     languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
       globals: {
         ...globals.browser,
         ...globals.node,
+      },
+    },
+    settings: {
+      react: {
+        version: "detect", // Automatically detects the React version from package.json
       },
     },
   },
@@ -33,10 +45,28 @@ export default defineConfig([
       ],
       "react/react-in-jsx-scope": "off",
       "react/self-closing-comp": "error",
-      "no-console": ["warn", { allow: ["warn", "error"] }],
+      "no-console": ["warn", { allow: ["warn", "error", "log"] }],
       "no-duplicate-imports": "error",
       "prefer-const": "error",
       eqeqeq: ["error", "always"],
+      "padding-line-between-statements": [
+        "error",
+        // return section
+        { blankLine: "always", prev: "*", next: "return" },
+
+        // imports
+        { blankLine: "always", prev: "import", next: "*" },
+        { blankLine: "any", prev: "import", next: "import" },
+
+        // func / class
+        { blankLine: "always", prev: "*", next: "function" },
+        { blankLine: "always", prev: "function", next: "*" },
+        { blankLine: "always", prev: "*", next: "class" },
+        { blankLine: "always", prev: "class", next: "*" },
+
+        // (if, for, switch, try)
+        { blankLine: "always", prev: "*", next: "block-like" },
+      ],
     },
   },
 ]);

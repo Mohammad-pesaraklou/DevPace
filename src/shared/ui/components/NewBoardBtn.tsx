@@ -12,6 +12,7 @@ function NewBoardBtn() {
   const user = useAuth((state) => state.user);
   // console.log({ user });
   const router = useRouter();
+
   function navigate() {
     router.push("/login");
   }
