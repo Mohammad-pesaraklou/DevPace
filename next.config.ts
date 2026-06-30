@@ -2,6 +2,8 @@ import bundleAnalyzer from "@next/bundle-analyzer";
 import withPWAInit from "@ducanh2912/next-pwa";
 import { NextConfig } from "next";
 
+const IsProduction = process.env.NODE_ENV === 'production'
+
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
@@ -9,7 +11,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 const withPWA = withPWAInit({
   dest: "public",
   sw: "sw.js",
-  disable: process.env.NODE_ENV === "development",
+  disable: !IsProduction,
   workboxOptions: {
     runtimeCaching: [
       {
@@ -42,9 +44,11 @@ const nextConfig: NextConfig = {
     // typedRoutes: true,
     // ppr: true,
   },
+  ...(IsProduction && {output: 'standalone'}),
   compiler: {
-    removeConsole: process.env.NODE_ENV === "production",
+    removeConsole: IsProduction,
   },
+  
   poweredByHeader: false,
   images: {
     remotePatterns: [
